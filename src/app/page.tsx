@@ -12,6 +12,15 @@ const endpoints = [
   },
   { method: "POST", path: "/api/auth/logout", desc: "Clear the session cookie" },
   { method: "GET", path: "/api/auth/me", desc: "Current session member" },
+  { method: "PATCH", path: "/api/auth/me", desc: "Update profile or change password" },
+  {
+    method: "GET",
+    path: "/api/properties",
+    desc: "List properties — search, city, type, purpose, featured filters",
+  },
+  { method: "GET", path: "/api/properties/:id", desc: "Property detail (+ view counter)" },
+  { method: "GET", path: "/api/favorites", desc: "My saved properties (auth)" },
+  { method: "POST", path: "/api/favorites/:id", desc: "Toggle favorite (auth)" },
   { method: "GET", path: "/api/members", desc: "List members — ADMIN only" },
 ];
 

@@ -61,6 +61,11 @@ const MemberSchema = new Schema(
       type: Number,
       default: 0,
     },
+    memberFavorites: {
+      type: [Schema.Types.ObjectId],
+      ref: "Property",
+      default: [],
+    },
   },
   { timestamps: true, collection: "members" },
 );
