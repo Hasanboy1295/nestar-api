@@ -24,6 +24,7 @@ const PropertySchema = new Schema(
     baths: { type: Number, default: 1, min: 0 },
     area: { type: Number, default: 0, min: 0 },
     description: { type: String, default: "", maxlength: 4000 },
+    image: { type: String, default: "", trim: true, maxlength: 300 },
     features: { type: [String], default: [] },
     isFeatured: { type: Boolean, default: false },
     views: { type: Number, default: 0 },
@@ -59,6 +60,7 @@ export interface SafeProperty {
   baths: number;
   area: number;
   description: string;
+  image: string;
   features: string[];
   isFeatured: boolean;
   views: number;
@@ -84,6 +86,7 @@ export function safeProperty(property: Property): SafeProperty {
     baths: property.baths ?? 0,
     area: property.area ?? 0,
     description: property.description ?? "",
+    image: property.image ?? "",
     features: property.features ?? [],
     isFeatured: Boolean(property.isFeatured),
     views: property.views ?? 0,

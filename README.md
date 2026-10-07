@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nestar API
+
+Real-estate platform REST API — Nestar. Auth, listings, favorites, admin members.
+
+## Stack
+
+- **Next.js 16** (App Router route handlers) + **TypeScript**
+- **MongoDB Atlas** via mongoose (collections: `listings`, `members`, `favorites`)
+- **jose** (JWT) + **bcryptjs** (password hashing), httpOnly cookie auth, rate-limited login/register
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in real values
+npm run dev                  # http://localhost:3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set in `.env.local` for local dev and in **Vercel → Project → Settings → Environment Variables** for production. Never hardcode them in source.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `MONGO_DEV` | MongoDB connection string used in development |
+| `MONGO_PROD` | MongoDB connection string used when `NODE_ENV=production` |
+| `SECRET_TOKEN` | JWT signing secret |
+| `ALLOWED_ORIGINS` | Comma separated CORS whitelist (frontend URLs) |
 
-## Learn More
+## .env security
 
-To learn more about Next.js, take a look at the following resources:
+- `.env*` is **gitignored** — real secrets are never committed.
+- Only `.env.example` (placeholder values) is tracked by git.
+- Real values live only in your local `.env.local` and the Vercel environment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev      # dev server
+npm run build    # production build
+npm run start    # serve production build
+npm run lint     # eslint
+node scripts/seed.mjs   # idempotent seed: 12 listings with property images
+```
 
-## Deploy on Vercel
+## API endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `GET /api/health`
+- `POST /api/auth/register` · `POST /api/auth/login` · `POST /api/auth/logout`
+- `GET|PATCH /api/auth/me`
+- `GET /api/properties` (filters: `q`, `city`, `type`, `purpose`, `featured`, `sort`, `limit`)
+- `GET /api/properties/[id]`
+- `GET /api/favorites` · `POST /api/favorites/[id]` (toggle)
+- `GET /api/members` (admin only)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+Connected to Vercel: https://nestar-api.vercel.app
+
+Branches: `master` (production) and `develop` (integration).

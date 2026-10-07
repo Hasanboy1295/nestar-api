@@ -10,6 +10,7 @@ if (!uri) {
 const properties = [
   {
     title: "Skyline Villa with Panorama View",
+    image: "/properties/01.jpg",
     type: "VILLA",
     purpose: "SALE",
     price: 850000,
@@ -29,6 +30,7 @@ const properties = [
   },
   {
     title: "Modern Apartment in Tashkent City",
+    image: "/properties/02.jpg",
     type: "APARTMENT",
     purpose: "SALE",
     price: 320000,
@@ -48,6 +50,7 @@ const properties = [
   },
   {
     title: "Cozy 2-Room Apartment, Yunusobod",
+    image: "/properties/03.jpg",
     type: "APARTMENT",
     purpose: "SALE",
     price: 145000,
@@ -67,6 +70,7 @@ const properties = [
   },
   {
     title: "Business Loft for Rent — Mirzo Ulug'bek",
+    image: "/properties/04.jpg",
     type: "COMMERCIAL",
     purpose: "RENT",
     price: 1800,
@@ -86,6 +90,7 @@ const properties = [
   },
   {
     title: "Family House with Big Yard — Sergeli",
+    image: "/properties/05.jpg",
     type: "HOUSE",
     purpose: "SALE",
     price: 265000,
@@ -105,6 +110,7 @@ const properties = [
   },
   {
     title: "Premium Studio for Rent — Amir Temur",
+    image: "/properties/06.jpg",
     type: "APARTMENT",
     purpose: "RENT",
     price: 650,
@@ -124,6 +130,7 @@ const properties = [
   },
   {
     title: "Land Plot 10 ares — Qibray",
+    image: "/properties/07.jpg",
     type: "LAND",
     purpose: "SALE",
     price: 48000,
@@ -143,6 +150,7 @@ const properties = [
   },
   {
     title: "Penthouse with Terrace — Tashkent City",
+    image: "/properties/08.jpg",
     type: "APARTMENT",
     purpose: "SALE",
     price: 690000,
@@ -162,6 +170,7 @@ const properties = [
   },
   {
     title: "Renovated 3-Room Apartment — Olmazar",
+    image: "/properties/09.jpg",
     type: "APARTMENT",
     purpose: "SALE",
     price: 175000,
@@ -181,6 +190,7 @@ const properties = [
   },
   {
     title: "Warehouse 800 m² — Yashnobod",
+    image: "/properties/10.jpg",
     type: "COMMERCIAL",
     purpose: "RENT",
     price: 4200,
@@ -200,6 +210,7 @@ const properties = [
   },
   {
     title: "Townhouse near Charvak Lake",
+    image: "/properties/11.jpg",
     type: "HOUSE",
     purpose: "SALE",
     price: 395000,
@@ -219,6 +230,7 @@ const properties = [
   },
   {
     title: "1-Room Apartment for Rent — Chilonzor",
+    image: "/properties/12.jpg",
     type: "APARTMENT",
     purpose: "RENT",
     price: 420,
